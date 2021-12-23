@@ -1,5 +1,6 @@
 package com.smh.todaysquote
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
@@ -29,11 +30,12 @@ class QuotesPagerAdapter(
         private val quoteTextView: TextView = itemView.findViewById(R.id.quoteTextView)
         private val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
 
+        @SuppressLint("SetTextI18n")
         fun bind(quote: Quote, isNameRevealed: Boolean) {
-            quoteTextView.text = quote.quote
+            quoteTextView.text = "\"${quote.quote}\""
 
             if (isNameRevealed) {
-                nameTextView.text = quote.name
+                nameTextView.text = "- ${quote.name}"
                 nameTextView.visibility = View.VISIBLE
             } else {
                 nameTextView.visibility = View.GONE
